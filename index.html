@@ -211,7 +211,7 @@ canvas {
     }
   }, true);
 })();</script>
-  <base href="https://prod-data.sekai.chat/v3-games/sandbox/games/b17bf0b4-2200-4fb7-8721-c4516768c97a/dist/718bd874-36a3-4b47-838a-1ce578bcb983/attempts/sekai-runtime-r-1492f546b7f4314d0a6aea2e60d4a330-787dfc596vx95t/">
+  <base href="https://prod-data.sekai.chat/v3-games/sandbox/games/b17bf0b4-2200-4fb7-8721-c4516768c97a/dist/e1c408f8-d2c1-4117-9813-c91ec392f656/attempts/sekai-runtime-r-1492f546b7f4314d0a6aea2e60d4a330-787dfc5966fr2g/">
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <title>Battery Simulator</title>
@@ -466,7 +466,7 @@ window.sekaiEditable = {
     <!-- // sekai-slot: sfx:digital-beep-up desc="digital beep rising tone" -->
     <!-- // sekai-slot: sfx:digital-beep-down desc="digital beep falling tone" -->
 
-    <div id="viewport" style="transform: translate(11.2639px, 39.1882px) rotate(-0.488587deg);" class="glitch-fx">
+    <div id="viewport" style="transform: translate(21.5795px, 1.1041px) rotate(-2.25995deg);" class="glitch-fx invert-fx">
         <!-- Overlay Canvas for Sparks -->
         <canvas id="effects-canvas" width="956" height="376"></canvas>
         
@@ -474,16 +474,16 @@ window.sekaiEditable = {
         <div id="flash-overlay" class="flash-active"></div>
 
         <!-- Text Message (Top) -->
-        <div id="message-display" class="text-2xl md:text-3xl text-center px-6 h-24 font-bold tracking-wide transition-colors flex items-center justify-center mb-4 uppercase drop-shadow-md" style="color: rgb(255, 255, 255);">im finished</div>
+        <div id="message-display" class="text-2xl md:text-3xl text-center px-6 h-24 font-bold tracking-wide transition-colors flex items-center justify-center mb-4 uppercase drop-shadow-md" style="color: rgb(255, 255, 255);">ahhhhhhhhhhhhh stooooooppppppp nowwwwwwwwwwwwwwwwww</div>
 
         <!-- Battery Visual -->
-        <div id="battery-body" style="border-color: rgb(159, 18, 57); box-shadow: rgb(159, 18, 57) 0px 0px 50px;">
-            <div id="battery-nub" style="background-color: rgb(159, 18, 57);"></div>
-            <div id="battery-fill" style="height: 100%; background-color: rgb(159, 18, 57);"></div>
+        <div id="battery-body" style="border-color: rgb(255, 255, 255); box-shadow: rgb(255, 255, 255) 0px 0px 50px;">
+            <div id="battery-nub" style="background-color: rgb(255, 255, 255);"></div>
+            <div id="battery-fill" style="height: 100%; background-color: rgb(255, 255, 255);"></div>
         </div>
 
         <!-- Percentage -->
-        <div id="percentage-display" class="text-7xl font-black mt-8 mb-6 font-mono tracking-tighter drop-shadow-lg" style="color: rgb(255, 255, 255); text-shadow: rgb(159, 18, 57) 0px 0px 15px;">690%</div>
+        <div id="percentage-display" class="text-7xl font-black mt-8 mb-6 font-mono tracking-tighter drop-shadow-lg" style="color: rgb(255, 255, 255); text-shadow: rgb(255, 255, 255) 0px 0px 15px;">43392%</div>
 
         <!-- Controls -->
         <div class="flex items-center gap-4 mt-2 z-40">
@@ -724,8 +724,8 @@ window.sekaiEditable = {
             subOsc.frequency.exponentialRampToValueAtTime(45, audioCtx.currentTime + 0.25);
 
             gainNode.gain.setValueAtTime(0.01, audioCtx.currentTime);
-            gainNode.gain.linearRampToValueAtTime(0.5, audioCtx.currentTime + 0.02);
-            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.4);
+            gainNode.gain.linearRampToValueAtTime(0.25, audioCtx.currentTime + 0.02);
+            gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.35);
 
             osc1.connect(gainNode);
             osc2.connect(gainNode);
@@ -798,42 +798,83 @@ window.sekaiEditable = {
 
             // Musical chromatic scale base note matching level
             const clampedLvl = Math.max(0, level);
-            const semitone = clampedLvl % 24;
-            const rootFreq = isPlus ? 330 : 260; // E4 or C4
-            const noteFreq = rootFreq * Math.pow(2, semitone / 12);
-
-            if (level >= 1000) {
+            if (level < 0) {
+                // Void realm sound synthesis - eerie, resonant, deep FM hollow sweep
+                const voidAbs = Math.abs(level);
+                const baseVoidFreq = Math.max(45, 140 - Math.min(voidAbs * 0.4, 95));
+                oscPrimary.type = 'triangle';
+                oscHarmonic.type = 'sine';
+                oscPrimary.frequency.setValueAtTime(baseVoidFreq * (isPlus ? 1.2 : 0.85), t);
+                oscPrimary.frequency.exponentialRampToValueAtTime(baseVoidFreq, t + 0.12);
+                oscHarmonic.frequency.setValueAtTime(baseVoidFreq * 2.5, t);
+                oscHarmonic.frequency.exponentialRampToValueAtTime(baseVoidFreq * 1.5, t + 0.14);
+                clickOsc.type = 'sine';
+                clickOsc.frequency.setValueAtTime(isPlus ? 440 : 220, t);
+                clickOsc.frequency.exponentialRampToValueAtTime(50, t + 0.02);
+                clickGain.gain.setValueAtTime(0.12, t);
+                clickGain.gain.exponentialRampToValueAtTime(0.0001, t + 0.02);
+                gainNode.gain.setValueAtTime(0.0001, t);
+                gainNode.gain.linearRampToValueAtTime(0.15, t + 0.015);
+                gainNode.gain.exponentialRampToValueAtTime(0.0001, t + 0.13);
+            } else if (level >= 1000) {
+                const semitone = (clampedLvl % 36);
+                const rootFreq = isPlus ? 330 : 260;
+                const noteFreq = rootFreq * Math.pow(2, semitone / 12);
                 oscPrimary.type = 'sawtooth';
                 oscHarmonic.type = 'square';
                 oscPrimary.frequency.setValueAtTime(200 + Math.random() * 1500, t);
                 oscHarmonic.frequency.setValueAtTime(300 + Math.random() * 2000, t);
+                clickOsc.type = 'triangle';
+                clickOsc.frequency.setValueAtTime(isPlus ? 800 : 400, t);
+                clickOsc.frequency.exponentialRampToValueAtTime(60, t + 0.01);
+                clickGain.gain.setValueAtTime(0.04, t);
+                clickGain.gain.exponentialRampToValueAtTime(0.0001, t + 0.01);
+                gainNode.gain.setValueAtTime(0.0001, t);
+                gainNode.gain.linearRampToValueAtTime(0.07, t + 0.01);
+                gainNode.gain.exponentialRampToValueAtTime(0.0001, t + 0.08);
             } else if (level > 100) {
+                // Continuous progressive pitch scaling so each level has a distinct rising frequency
+                const baseNote = (isPlus ? 280 : 220) * Math.pow(2, ((level - 100) % 48) / 12);
                 oscPrimary.type = level > 400 ? 'square' : 'sawtooth';
                 oscHarmonic.type = 'sine';
-                const overchargeFreq = Math.min(3000, noteFreq * (1 + (level - 100) * 0.015));
+                const overchargeFreq = Math.min(2400, baseNote * (1 + (level - 100) * 0.005));
                 oscPrimary.frequency.setValueAtTime(overchargeFreq, t);
                 oscHarmonic.frequency.setValueAtTime(overchargeFreq * 1.5, t);
+                clickOsc.type = 'triangle';
+                clickOsc.frequency.setValueAtTime(isPlus ? 850 : 450, t);
+                clickOsc.frequency.exponentialRampToValueAtTime(70, t + 0.01);
+                clickGain.gain.setValueAtTime(0.04, t);
+                clickGain.gain.exponentialRampToValueAtTime(0.0001, t + 0.01);
+                gainNode.gain.setValueAtTime(0.0001, t);
+                gainNode.gain.linearRampToValueAtTime(0.06, t + 0.01);
+                gainNode.gain.exponentialRampToValueAtTime(0.0001, t + 0.08);
             } else {
+                // Positive 0 - 100: pitch scales noticeably with level, with musical pentatonic/chromatic steps
+                // Level 0..100 maps smoothly across multiple octaves so each step has a distinct audible pitch
+                const baseRoot = isPlus ? 260 : 200;
+                // Map 0-100 to 0..30 semitones (2.5 octaves) so each 1% or 10% change clearly changes pitch
+                const semitone = (level * 0.3) + ((level % 5) * 0.4);
+                const noteFreq = baseRoot * Math.pow(2, semitone / 12);
                 oscPrimary.type = 'sine';
                 oscHarmonic.type = 'triangle';
                 oscPrimary.frequency.setValueAtTime(noteFreq, t);
-                const slideTarget = isPlus ? noteFreq * 1.15 : noteFreq * 0.85;
-                oscPrimary.frequency.exponentialRampToValueAtTime(Math.max(40, slideTarget), t + 0.08);
+                const slideTarget = isPlus ? noteFreq * 1.08 : noteFreq * 0.92;
+                oscPrimary.frequency.exponentialRampToValueAtTime(Math.max(40, slideTarget), t + 0.07);
                 oscHarmonic.frequency.setValueAtTime(noteFreq * 2, t);
-                oscHarmonic.frequency.exponentialRampToValueAtTime(Math.max(80, slideTarget * 2), t + 0.08);
+                oscHarmonic.frequency.exponentialRampToValueAtTime(Math.max(80, slideTarget * 2), t + 0.07);
+
+                // Gentle, soft click transient
+                clickOsc.type = 'sine';
+                clickOsc.frequency.setValueAtTime(isPlus ? 700 : 350, t);
+                clickOsc.frequency.exponentialRampToValueAtTime(60, t + 0.01);
+                clickGain.gain.setValueAtTime(0.035, t);
+                clickGain.gain.exponentialRampToValueAtTime(0.0001, t + 0.01);
+
+                // Softer, gentle volume envelope (not loud)
+                gainNode.gain.setValueAtTime(0.0001, t);
+                gainNode.gain.linearRampToValueAtTime(0.055, t + 0.01);
+                gainNode.gain.exponentialRampToValueAtTime(0.0001, t + 0.08);
             }
-
-            // Punchy click transient for mechanical satisfying pop feel
-            clickOsc.type = 'triangle';
-            clickOsc.frequency.setValueAtTime(isPlus ? 1200 : 700, t);
-            clickOsc.frequency.exponentialRampToValueAtTime(100, t + 0.015);
-            clickGain.gain.setValueAtTime(0.2, t);
-            clickGain.gain.exponentialRampToValueAtTime(0.001, t + 0.015);
-
-            // Smooth, rich tone envelope
-            gainNode.gain.setValueAtTime(0.001, t);
-            gainNode.gain.linearRampToValueAtTime(0.22, t + 0.008);
-            gainNode.gain.exponentialRampToValueAtTime(0.001, t + 0.09);
 
             oscPrimary.connect(gainNode);
             oscHarmonic.connect(gainNode);
@@ -858,6 +899,17 @@ window.sekaiEditable = {
      */
     //#region @sekai:logic · Battery thresholds and visual state updates
     function getBatteryState(level) {
+        // Void dimension (negative battery levels)
+        if (level < 0) {
+            if (level >= -5) return { msg: "entering the void", color: "#6b21a8", textCol: "#c084fc", shake: 1, glow: "#6b21a8", dimension: "Void" };
+            if (level >= -15) return { msg: "void: anti-matter draining", color: "#581c87", textCol: "#a855f7", shake: 3, glow: "#7e22ce", dimension: "Void" };
+            if (level >= -30) return { msg: "void: reality collapsing", color: "#3b0764", textCol: "#9333ea", shake: 5, glow: "#9333ea", dimension: "Void" };
+            if (level >= -60) return { msg: "void: negative singularity", color: "#2e1065", textCol: "#c084fc", shake: 8, glow: "#a855f7", dimension: "Void" };
+            if (level >= -100) return { msg: "void: absolute zero existence", color: "#1e1b4b", textCol: "#e9d5ff", shake: 12, glow: "#c084fc", glitch: true, dimension: "Void" };
+            if (level >= -200) return { msg: "void: swallowed by eternal darkness", color: "#0f0e17", textCol: "#f3e8ff", shake: 18, glow: "#e9d5ff", glitch: true, invert: true, dimension: "Void" };
+            return { msg: "void: beyond cosmic comprehension", color: "#000000", textCol: "#ffffff", shake: 28, glow: "#ffffff", glitch: true, invert: true, dimension: "Void" };
+        }
+
         // User's exact requested thresholds and texts
         if (level === 0) return { msg: "dead", color: "#525252", textCol: "#a3a3a3", shake: 0 };
         if (level < 5) return { msg: "extremly less batterie", color: "#dc2626", textCol: "#ef4444", shake: 0 };
@@ -889,7 +941,20 @@ window.sekaiEditable = {
         elements.messageDisplay.textContent = state.msg;
         elements.messageDisplay.style.color = state.textCol;
 
-        // Update battery visual
+        // Update battery visual and dimension style
+        if (level < 0) {
+            // Void dimension visual
+            const fillPercent = Math.min(Math.abs(level), 100);
+            elements.batteryFill.style.height = `${fillPercent}%`;
+            elements.batteryFill.style.backgroundColor = state.color;
+            elements.batteryNub.style.backgroundColor = state.glow || '#7e22ce';
+            elements.batteryBody.style.borderColor = state.glow || '#7e22ce';
+            elements.batteryBody.style.boxShadow = `0 0 ${Math.min(Math.abs(level), 40)}px ${state.glow || '#7e22ce'}, inset 0 0 15px rgba(0,0,0,0.8)`;
+            elements.percentageDisplay.style.color = state.textCol;
+            elements.percentageDisplay.style.textShadow = `0 0 15px ${state.glow || '#9333ea'}`;
+            elements.viewport.style.backgroundColor = 'rgba(10, 0, 20, 0.95)';
+        } else {
+            elements.viewport.style.backgroundColor = '';
         const fillPercent = Math.min(level, 100);
         elements.batteryFill.style.height = `${fillPercent}%`;
         elements.batteryFill.style.backgroundColor = state.color;
@@ -907,6 +972,7 @@ window.sekaiEditable = {
             elements.batteryBody.style.boxShadow = 'none';
             elements.percentageDisplay.style.color = 'var(--text-color)';
             elements.percentageDisplay.style.textShadow = 'none';
+            }
         }
 
         // Apply FX classes
@@ -927,7 +993,7 @@ window.sekaiEditable = {
     //#region @sekai:input · Battery controls and hold-repeat handling
     function changeLevel(amount) {
         const oldLevel = appState.level;
-        appState.level = Math.max(0, appState.level + amount);
+        appState.level = appState.level + amount;
         updateUI();
         
         // Trigger the 101% effect when transitioning upwards to or past 101
