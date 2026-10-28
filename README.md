@@ -1,7 +1,5 @@
 # 🔋 Battery Simulator
 
-[Profile](https://aippy.ai/@@Niklas-h1y?s=xVXE)
-
 An interactive web simulation designed to push standard device mechanics to their absolute structural limits, culminating in a chaotic, glitched, and highly unstable terminal environment at an extreme **3000% Overcharge** state.
 
 ## 🚀 Key Features
@@ -15,4 +13,5 @@ Experience the system chaos running live on the web:
 👉 **[Launch Battery Simulator](https://320be1f6-6bcd-42ce-9c60-d14b35d2c392.aippy.live/?v=1792789503))**
 
 ---
-*Developed by [@Niklas-h1y](https://github.com/niklas-h1y)*
+**Developed by [@Niklas-h1y](https://github.com/niklas-h1y)**
+**[Profile to Aippy.ai @Niklas-h1y](https://aippy.ai/@@Niklas-h1y?s=xVXE)**
