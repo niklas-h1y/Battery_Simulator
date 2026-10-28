@@ -1,11 +1,11 @@
 # 🔋 Battery Simulator
 
-An interactive web simulation designed to push standard device mechanics to their absolute structural limits, culminating in a chaotic, glitched, and highly unstable terminal environment at an extreme **3000% Overcharge** state.
+An interactive web simulation designed to push standard device mechanics to their absolute structural limits, culminating in a chaotic, glitched, and highly unstable terminal environment at an extreme **5000%+ Overcharge** state.
 
 ## 🚀 Key Features
 
 * **Extreme Overcharge Mechanics:** Break past traditional 100% capacity thresholds to trigger massive systemic overvoltages.
-**Fun** Distortion,Glitch effects,Inverted Dimension (Void)
+**Fun** Destruction,Distortion,Glitch effects,Inverted Dimension (Void)
 * **Buried Easter Eggs:** Built with a hidden Easteregg (only inside [Aippy.ai](https://aippy.ai/@@Niklas-h1y?s=xVXE)) that is based on a comment's story of playing the game and the feeling.
 
 ## 🔗 Live Site
