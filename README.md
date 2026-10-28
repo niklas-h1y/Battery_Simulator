@@ -1,6 +1,6 @@
 # 🔋 Battery Simulator
 
-[Profile](https://aippy.ai/@@Niklas-h1y?s=xVXE)]
+[Profile](https://aippy.ai/@@Niklas-h1y?s=xVXE)
 
 An interactive web simulation designed to push standard device mechanics to their absolute structural limits, culminating in a chaotic, glitched, and highly unstable terminal environment at an extreme **3000% Overcharge** state.
 
