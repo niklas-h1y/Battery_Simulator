@@ -1,15 +1,19 @@
-# Battery Simulator
+# 🔋 Battery Simulator
 
-**Battery Simulator** is an interactive web simulation that allows users to test the chaotic limits of a power core, famously known for its extreme "3000% Overcharge" state. 
+[![Live Demo](https://shields.io)](https://github.io)
+[![Profile](https://shields.io)](https://aippy.ai)
 
-Built as a highly reactive, retro-styled component, the simulation pushes standard hardware boundaries into the realm of absolute system instability.
+An interactive web simulation designed to push standard device mechanics to their absolute structural limits, culminating in a chaotic, glitched, and highly unstable terminal environment at an extreme **3000% Overcharge** state.
 
 ## 🚀 Key Features
 
-* **Overcharge Mechanics:** Push the battery core far past its standard 100% safety limits to trigger extreme, glitched power baselines.
-* **Dynamic UI Failures:** Watch the interface shift into a "Highly Unstable" state, featuring retro green terminal alerts, flashing critical error sequences, and automated countdown failures.
-* **Hidden Easter Eggs:** Secret sequences and hidden triggers are buried deep within the system for dedicated players to discover.
-* **Viral System Chaos:** Designed with high-energy system failures that have captured the attention of content creators, racking up thousands of views on YouTube Shorts and driving a massive wave of community interaction.
+* **Extreme Overcharge Mechanics:** Break past traditional 100% capacity thresholds to trigger massive systemic overvoltages.
+* **Dynamic Failure Architecture:** Watch the interface completely destabilize with custom retro-green code sequences, flickering warnings, and high-frequency UI distortion.
+* **Buried Easter Eggs:** Built with hidden triggers and interactive commands for users exploring code depths.
+
+## 🔗 Live Site
+Experience the system chaos running live on the web:
+👉 **[Launch Battery Simulator](https://github.io)**
 
 ---
-*Created by [@Niklas-h1y](https://aippy.ai) (Me!)* 
+*Developed by [@Niklas-h1y](https://github.com/niklas-h1y)*
