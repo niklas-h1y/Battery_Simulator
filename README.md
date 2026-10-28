@@ -1,7 +1,6 @@
 # 🔋 Battery Simulator
 
-[![Live Demo](https://shields.io)](https://github.io)
-[![Profile](https://shields.io)](https://aippy.ai)
+[![Profile](https://aippy.ai/@@Niklas-h1y?s=xVXE)]
 
 An interactive web simulation designed to push standard device mechanics to their absolute structural limits, culminating in a chaotic, glitched, and highly unstable terminal environment at an extreme **3000% Overcharge** state.
 
@@ -9,7 +8,7 @@ An interactive web simulation designed to push standard device mechanics to thei
 
 * **Extreme Overcharge Mechanics:** Break past traditional 100% capacity thresholds to trigger massive systemic overvoltages.
 * **Dynamic Failure Architecture:** Watch the interface completely destabilize with custom retro-green code sequences, flickering warnings, and high-frequency UI distortion.
-* **Buried Easter Eggs:** Built with hidden triggers and interactive commands for users exploring code depths.
+* **Buried Easter Eggs:** Built with a hidden Easteregg (not in this version) that is based on a comment's story of playing the game and the feeling.
 
 ## 🔗 Live Site
 Experience the system chaos running live on the web:
