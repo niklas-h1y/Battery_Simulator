@@ -10,7 +10,7 @@ An interactive web simulation designed to push standard device mechanics to thei
 
 ## 🔗 Live Site
 Experience the system chaos running live on the web:
-👉 **[Launch Battery Simulator](https://320be1f6-6bcd-42ce-9c60-d14b35d2c392.aippy.live/?v=1792789503))**
+👉 **[Launch Battery Simulator](https://320be1f6-6bcd-42ce-9c60-d14b35d2c392.aippy.live/?v=1792789503)**
 
 ---
 **Developed by [@Niklas-h1y](https://github.com/niklas-h1y)**
