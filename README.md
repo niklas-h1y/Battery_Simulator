@@ -6,7 +6,7 @@ An interactive web simulation designed to push standard device mechanics to thei
 
 * **Extreme Overcharge Mechanics:** Break past traditional 100% capacity thresholds to trigger massive systemic overvoltages.
 * **Dynamic Failure Architecture:** Watch the interface completely destabilize with custom retro-green code sequences, flickering warnings, and high-frequency UI distortion.
-* **Buried Easter Eggs:** Built with a hidden Easteregg (only inside [aippy.ai](https://aippy.ai/@@Niklas-h1y?s=xVXE)) that is based on a comment's story of playing the game and the feeling.
+* **Buried Easter Eggs:** Built with a hidden Easteregg (only inside [Aippy.ai](https://aippy.ai/@@Niklas-h1y?s=xVXE)) that is based on a comment's story of playing the game and the feeling.
 
 ## 🔗 Live Site
 Experience the system chaos running live on the web:
